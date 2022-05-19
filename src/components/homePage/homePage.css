@@ -1,0 +1,45 @@
+.img-header-text {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  align-items: flex-start;
+  top: 80px;
+  left: 20px;
+  font-size: 5vw;
+  color: white;
+}
+
+.img-header-text > p {
+  margin: 0;
+}
+
+.first-image {
+  /* width: auto; */
+  width: 100vw; /* width of container */
+  height: 400px; /* height of container */
+  object-fit: cover;
+  object-position: 20% 45%;
+  /* height: 150vh; */
+}
+
+.resources-box {
+  margin: auto;
+  padding: 0.2vw;
+  background-color: green;
+  width: 50vw;
+  border-radius: 10px;
+}
+
+@media only screen and (max-device-width: 650px) {
+  .first-image {
+    height: 20vh;
+    object-position: 0% 36%;
+
+    object-fit: cover;
+  }
+  .img-header-text {
+    position: absolute;
+    top: 8vh;
+    left: 4vw;
+  }
+}
