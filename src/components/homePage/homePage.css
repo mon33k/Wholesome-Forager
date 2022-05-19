@@ -9,6 +9,10 @@
   color: white;
 }
 
+.disclaimer-nested-container {
+  display: flex;
+}
+
 .img-header-text > p {
   margin: 0;
 }
@@ -20,6 +24,30 @@
   object-fit: cover;
   object-position: 20% 45%;
   /* height: 150vh; */
+}
+
+.second-image {
+  width: 20vw;
+  /* height: ; */
+}
+.third-image {
+  width: 20vw;
+}
+
+.first-img-container,
+.second-img-container,
+.third-img-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.first-img-container {
+  background-color: #edf7ee;
+}
+
+.third-img-container {
+  background-color: #edf7ee;
 }
 
 .resources-box {
