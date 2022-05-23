@@ -1,3 +1,22 @@
 .nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 2vh;
+}
+
+.menu-overlay {
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  width: 30vw;
+  margin: 0 auto;
+  background: white;
+  color: black;
+  padding: 10px;
+  position: absolute;
+  top: 5%;
+  right: 2vw;
   border: 1px solid black;
 }

@@ -7,7 +7,7 @@ import iphoneexample from "./iphoneExample.png";
 const HomePage = () => {
   return (
     <>
-      <div className="first-img-container">
+      <div className="first-section-container">
         {" "}
         <div className="img-header-text">
           <p>Edible Plant Manual of</p>
@@ -27,19 +27,24 @@ const HomePage = () => {
         </div>
       </div>
       <div>
-        <div className="second-img-container">
-          <img
-            src="https://loveincorporated.blob.core.windows.net/contentimages/main/foraging+.jpg"
-            alt="plants"
-            className="second-image"
-          />
-        </div>
-
-        <div className="third-img-container">
+        <div className="second-section-container">
+          <p className="feature1">
+            Looking for a specific plant? <br></br>Search for it or see a full{" "}
+            <br></br>
+            list of plant species!
+          </p>
           <img
             src={iphoneexample}
             alt="iphoneexample"
             className="third-image"
+          />
+        </div>
+
+        <div className="third-section-container">
+          <img
+            src="https://loveincorporated.blob.core.windows.net/contentimages/main/foraging+.jpg"
+            alt="plants"
+            className="veggie-image"
           />
         </div>
       </div>
