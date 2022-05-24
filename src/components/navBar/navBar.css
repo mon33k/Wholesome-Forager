@@ -6,9 +6,17 @@
   padding: 2vh;
 }
 
+.logo-icon {
+  text-decoration: none;
+  font-size: 2vw;
+}
+.hiking-icon {
+  padding-left: 0.4vw;
+}
 .menu-overlay {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   height: 40vh;
   width: 30vw;
   margin: 0 auto;
@@ -19,4 +27,15 @@
   top: 5%;
   right: 2vw;
   border: 1px solid black;
+}
+
+.menu-overlay > a {
+  text-decoration: none;
+  font-size: 2vw;
+}
+
+@media only screen and (max-device-width: 650px) {
+  .menu-overlay {
+    width: auto;
+  }
 }
