@@ -42,12 +42,16 @@
   margin-right: 10vw;
 }
 
-.first-section-container,
 .second-section-container,
 .third-section-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+.first-section-container {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
 }
 
 .second-section-container {
@@ -70,6 +74,10 @@
 }
 
 @media only screen and (max-device-width: 650px) {
+  .resources-box {
+    width: 80vw;
+    font-size: 2vw;
+  }
   .first-image {
     height: 20vh;
     object-position: 0% 36%;
