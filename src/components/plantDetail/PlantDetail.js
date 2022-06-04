@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { ApiContext } from "../../providers/apiContext";
+
 import "./plantDetail.css";
 
 const PlantDetail = ({ commonName, scientificName, id }) => {
+  const plantApi = useContext(ApiContext);
+  const apiCall = plantApi.getPlantById;
+  const apiData = plantApi.plantData;
+
+  const handleClickCard = async (e) => {
+    e.preventDefault();
+    console.log("id", id);
+    let singlePlant = await apiCall(id);
+    console.log(singlePlant); // set state for this info to be passed to plant page
+  };
+
   return (
-    <div className="plant-detail-container">
+    <div className="plant-detail-container" onClick={handleClickCard}>
       <img
         src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640"
         alt="placeholder"

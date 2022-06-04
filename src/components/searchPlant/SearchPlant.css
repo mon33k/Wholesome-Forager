@@ -1,0 +1,5 @@
+@media only screen and (max-device-width: 650px) {
+  .search-container {
+    padding: 8vw;
+  }
+}

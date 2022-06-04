@@ -1,4 +1,5 @@
 import React, { setState, useState } from "react";
+import "./SearchPlant.css";
 
 const SearchPlant = () => {
   const [searchPlant, setSearchPlant] = useState();
@@ -13,7 +14,7 @@ const SearchPlant = () => {
   };
 
   return (
-    <div>
+    <div className="search-container">
       <input
         type="text"
         placeholder="Search for a plant!"

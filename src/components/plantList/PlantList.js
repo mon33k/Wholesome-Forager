@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import PlantDetail from "../plantDetail/PlantDetail";
 import { ApiContext } from "../../providers/apiContext";
+import "./PlantList.css";
 
 const PlantList = () => {
   const plantApi = useContext(ApiContext);
@@ -14,6 +15,7 @@ const PlantList = () => {
             commonName={plant.common_name}
             scientificName={plant.scientific_name}
             key={plant.id}
+            id={plant.id}
           />
         );
       })}

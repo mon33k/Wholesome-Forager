@@ -38,4 +38,8 @@
   .menu-overlay {
     width: auto;
   }
+
+  .menu-overlay > a {
+    font-size: 6vw;
+  }
 }
