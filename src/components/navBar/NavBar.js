@@ -13,9 +13,9 @@ import FavoritePlants from "../favoritePlants/FavoritePlants";
 import SearchPlant from "../searchPlant/SearchPlant";
 
 const NavBar = () => {
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(true);
   const handleMenuClick = (e) => {
-    clicked ? setClicked(false) : setClicked(true);
+    setClicked((clicked) => !clicked);
   };
 
   return (
@@ -27,15 +27,15 @@ const NavBar = () => {
         </Link>
         <div className="burger-menu">
           <FontAwesomeIcon icon={faBars} onClick={handleMenuClick} />
-          {clicked ? (
-            <div className="menu-overlay">
-              <Link to="/plant/list">Plant Archive</Link>
-              <Link to="/favorite">Favorite Plants</Link>
-              <SearchPlant />
-            </div>
-          ) : (
-            ""
-          )}
+
+          <div
+            className="menu-overlay"
+            style={{ display: clicked ? "block" : "none" }}
+          >
+            <Link to="/plant/list">Plant Archive</Link>
+            <Link to="/favorite">Favorite Plants</Link>
+            <SearchPlant />
+          </div>
         </div>
       </div>
       <Routes>

@@ -18,7 +18,6 @@ export const ApiProvider = ({ children }) => {
     return fetch(`https://plantapp51022.herokuapp.com/plant/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         return data;
       });
   };
