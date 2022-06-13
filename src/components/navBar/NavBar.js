@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "./navBar.css";
 import PlantList from "../plantList/PlantList";
@@ -13,10 +13,24 @@ import FavoritePlants from "../favoritePlants/FavoritePlants";
 import SearchPlant from "../searchPlant/SearchPlant";
 
 const NavBar = () => {
-  const [clicked, setClicked] = useState(true);
-  const handleMenuClick = (e) => {
-    setClicked((clicked) => !clicked);
+  const node = useRef();
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleClickModal = (e) => {
+    if (node.current.contains(e.target)) {
+      setModalOpen(true);
+      return;
+    }
+    setModalOpen(false);
   };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickModal);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickModal);
+    };
+  }, []);
 
   return (
     <>
@@ -25,17 +39,15 @@ const NavBar = () => {
           Wholesome Forager
           <FontAwesomeIcon icon={faPersonHiking} className="hiking-icon" />
         </Link>
-        <div className="burger-menu">
-          <FontAwesomeIcon icon={faBars} onClick={handleMenuClick} />
-
-          <div
-            className="menu-overlay"
-            style={{ display: clicked ? "block" : "none" }}
-          >
-            <Link to="/plant/list">Plant Archive</Link>
-            <Link to="/favorite">Favorite Plants</Link>
-            <SearchPlant />
-          </div>
+        <div className="burger-menu" ref={node}>
+          <FontAwesomeIcon icon={faBars} onClick={handleClickModal} />
+          {isModalOpen && (
+            <div className="menu-overlay">
+              <Link to="/plant/list">Plant Archive</Link>
+              <Link to="/favorite">Favorite Plants</Link>
+              <SearchPlant />
+            </div>
+          )}
         </div>
       </div>
       <Routes>
