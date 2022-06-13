@@ -22,12 +22,11 @@ const PlantPage = () => {
     singlePlant();
   }, []);
 
-  console.log(pageInfo);
   return (
     <div>
-      <h1>{pageInfo.common_name}</h1>
-      <h2>{pageInfo.scientific_name}</h2>
-      <p>{pageInfo.known_hazards}</p>
+      <h1>{pageInfo?.common_name}</h1>
+      <h2>{pageInfo?.scientific_name}</h2>
+      <p>{pageInfo?.known_hazards}</p>
     </div>
   );
 };
