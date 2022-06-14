@@ -4,6 +4,8 @@ import "./navBar.css";
 import PlantList from "../plantList/PlantList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faPersonHiking } from "@fortawesome/free-solid-svg-icons";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 // import { fab } from "@fortawesome/free-brands-svg-icons";
 
 // import PlantPage from "../plantPage/PlantPage";
@@ -45,7 +47,6 @@ const NavBar = () => {
             <div className="menu-overlay">
               <Link to="/plant/list">Plant Archive</Link>
               <Link to="/favorite">Favorite Plants</Link>
-              <SearchPlant />
             </div>
           )}
         </div>
