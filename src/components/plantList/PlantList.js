@@ -13,6 +13,7 @@ const PlantList = () => {
 
   const filterPlantsBySearchTerm = (term) => {
     return plantInfo.filter((plant) => {
+      console.log("plant ", plant);
       return plant.common_name.toLowerCase().includes(term.toLowerCase());
     });
   };
@@ -23,36 +24,35 @@ const PlantList = () => {
 
   return (
     <div className="plantList">
-      {/* <SearchPlant /> */}
-      {/* <input
-        value={searchTerm}
-        onChange={(e) => {
-          setSearchTerm(e.target.value);
-        }}
-      /> */}
-      <TextField
-        id="outlined-basic"
-        label="Search"
-        variant="outlined"
-        value={searchTerm}
-        onChange={(e) => {
-          setSearchTerm(e.target.value);
-        }}
-        className="searchBar"
-      />
+      <div className="column1">
+        <h1>Plant Archive</h1>
+        <TextField
+          id="outlined-basic"
+          label="Search"
+          variant="outlined"
+          value={searchTerm}
+          className="search-input"
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+          }}
+        />
+      </div>
 
-      {filteredPlantsBySearch.length > 0 &&
-        filteredPlantsBySearch.map((plant) => {
-          return (
-            <PlantDetail
-              commonName={plant.common_name}
-              scientificName={plant.scientific_name}
-              key={plant.id}
-              id={plant.id}
-            />
-          );
-        })}
-      {filteredPlantsBySearch == 0 && <div>No results.</div>}
+      <div className="column2">
+        {filteredPlantsBySearch.length > 0 &&
+          filteredPlantsBySearch.map((plant) => {
+            return (
+              <PlantDetail
+                commonName={plant.common_name}
+                scientificName={plant.scientific_name}
+                image={plant.image_url.split(",")[0]}
+                key={plant.id}
+                id={plant.id}
+              />
+            );
+          })}
+        {filteredPlantsBySearch == 0 && <div>No results.</div>}
+      </div>
     </div>
   );
 };

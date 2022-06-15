@@ -4,11 +4,7 @@ import "./navBar.css";
 import PlantList from "../plantList/PlantList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faPersonHiking } from "@fortawesome/free-solid-svg-icons";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-// import { fab } from "@fortawesome/free-brands-svg-icons";
 
-// import PlantPage from "../plantPage/PlantPage";
 import HomePage from "../homePage/HomePage";
 import PlantPage from "../plantPage/PlantPage";
 import FavoritePlants from "../favoritePlants/FavoritePlants";
@@ -42,7 +38,11 @@ const NavBar = () => {
           <FontAwesomeIcon icon={faPersonHiking} className="hiking-icon" />
         </Link>
         <div className="burger-menu" ref={node}>
-          <FontAwesomeIcon icon={faBars} onClick={handleClickModal} />
+          <FontAwesomeIcon
+            icon={faBars}
+            onClick={handleClickModal}
+            className="fa-icon"
+          />
           {isModalOpen && (
             <div className="menu-overlay">
               <Link to="/plant/list">Plant Archive</Link>

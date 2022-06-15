@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 // import PlantPage from "../plantPage/PlantPage";
 import "./plantDetail.css";
 
-const PlantDetail = ({ commonName, scientificName, id }) => {
+const PlantDetail = ({ commonName, scientificName, id, image }) => {
   // const plantApi = useContext(ApiContext);
   // const apiCall = plantApi.getPlantById;
   // const apiData = plantApi.plantData;
@@ -23,11 +23,7 @@ const PlantDetail = ({ commonName, scientificName, id }) => {
 
   return (
     <div className="plant-detail-container" onClick={handleClickCard}>
-      <img
-        src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640"
-        alt="placeholder"
-        className="placeholder-img"
-      />
+      <img src={image} alt="placeholder" className="plant-img" />
       <div className="plant-name-box">
         <h1 className="commonname-text">{commonName}</h1>
         <h4 className="scientificname-text">{scientificName}</h4>

@@ -1,3 +1,20 @@
-.searchBar {
-  margin-top: 10px !important;
+.plantList {
+  display: flex;
+  flex-direction: row;
+}
+.column1 {
+  width: 40%;
+}
+.column2 {
+  width: 60%;
+}
+
+/* .search-input {
+  /* margin: 51px !important; */
+
+@media only screen and (max-device-width: 650px) {
+  .plantList {
+    display: flex;
+    flex-direction: column;
+  }
 }

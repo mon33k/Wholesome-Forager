@@ -2,16 +2,17 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px solid black;
+  background-color: #1c7143;
   padding: 2vh;
 }
 
 .logo-icon {
   text-decoration: none;
+  color: white;
   font-size: 2vw;
 }
 .hiking-icon {
-  padding-left: 0.4vw;
+  padding-left: 0.8rem !important;
 }
 .menu-overlay {
   display: flex;
@@ -35,11 +36,17 @@
 }
 
 @media only screen and (max-device-width: 650px) {
+  .logo-icon {
+    font-size: 4vw;
+  }
+  .hiking-icon {
+    padding-left: 0.4rem !important;
+  }
   .menu-overlay {
     width: auto;
   }
 
   .menu-overlay > a {
-    font-size: 6vw;
+    font-size: 4vw;
   }
 }
