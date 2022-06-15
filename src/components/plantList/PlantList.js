@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SearchPlant from "../searchPlant/SearchPlant";
 import PlantDetail from "../plantDetail/PlantDetail";
 import { ApiContext } from "../../providers/apiContext";
@@ -8,11 +8,20 @@ import TextField from "@mui/material/TextField";
 
 const PlantList = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [allPlantInfo, setAllPlantInfo] = useState([]);
   const plantApi = useContext(ApiContext);
   const plantInfo = plantApi.plantData;
 
+  useEffect(() => {
+    const allPlants = async () => {
+      const response = await plantInfo();
+      setAllPlantInfo(response);
+    };
+    allPlants();
+  }, []);
+
   const filterPlantsBySearchTerm = (term) => {
-    return plantInfo.filter((plant) => {
+    return allPlantInfo.filter((plant) => {
       console.log("plant ", plant);
       return plant.common_name.toLowerCase().includes(term.toLowerCase());
     });
@@ -20,7 +29,7 @@ const PlantList = () => {
 
   let filteredPlantsBySearch = searchTerm
     ? filterPlantsBySearchTerm(searchTerm)
-    : plantInfo;
+    : allPlantInfo;
 
   return (
     <div className="plantList">

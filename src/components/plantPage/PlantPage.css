@@ -1,0 +1,22 @@
+.plant-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plant-profile-img {
+  width: 6vw;
+  height: 12vh;
+  border-radius: 50%;
+  padding-top: 20px;
+}
+
+.plant-name-card {
+  width: 40vw;
+  display: flex;
+  border: 1px solid black;
+}
+
+.plant-name-container {
+  padding: 20px;
+}

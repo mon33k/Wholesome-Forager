@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import "./PlantPage.css";
 import { ApiContext } from "../../providers/apiContext";
 import { useLocation } from "react-router-dom";
 
@@ -7,12 +8,6 @@ const PlantPage = () => {
   let location = useLocation();
   const plantApi = useContext(ApiContext);
   const apiCall = plantApi.getPlantById;
-  const apiData = plantApi.plantData;
-
-  // console.log(location);
-
-  // let singlePlant = apiCall(location.state.id);
-  // console.log(singlePlant);
 
   useEffect(() => {
     const singlePlant = async () => {
@@ -23,10 +18,24 @@ const PlantPage = () => {
   }, []);
 
   return (
-    <div>
-      <h1>{pageInfo?.common_name}</h1>
-      <h2>{pageInfo?.scientific_name}</h2>
-      <p>{pageInfo?.known_hazards}</p>
+    <div className="plant-page-container">
+      {Object.keys(pageInfo).length !== 0 && (
+        <>
+          <div className="plant-name-card">
+            <img
+              src={pageInfo && pageInfo.image_url.split(", ")[0]}
+              className="plant-profile-img"
+              alt={`plant-${pageInfo.common_name}`}
+            />
+            <div className="plant-name-container">
+              <h1>{pageInfo?.common_name}</h1>
+              <h2>{pageInfo?.scientific_name}</h2>
+            </div>
+          </div>
+
+          <p>{pageInfo?.known_hazards}</p>
+        </>
+      )}
     </div>
   );
 };

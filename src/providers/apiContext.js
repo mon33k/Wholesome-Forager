@@ -1,18 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { createContext } from "react";
 
 export const ApiContext = createContext();
 
 export const ApiProvider = ({ children }) => {
-  const [plantData, setPlantData] = useState([]);
-
-  useEffect(() => {
-    fetch("https://plantapp51022.herokuapp.com/plant/all")
+  const allPlants = () => {
+    return fetch("https://plantapp51022.herokuapp.com/plant/all")
       .then((response) => response.json())
       .then((data) => {
-        setPlantData(data);
+        return data;
       });
-  }, []);
+  };
 
   const singlePlant = (id) => {
     return fetch(`https://plantapp51022.herokuapp.com/plant/${id}`)
@@ -24,7 +22,7 @@ export const ApiProvider = ({ children }) => {
 
   return (
     <ApiContext.Provider
-      value={{ plantData: plantData, getPlantById: singlePlant }}
+      value={{ plantData: allPlants, getPlantById: singlePlant }}
     >
       {children}
     </ApiContext.Provider>

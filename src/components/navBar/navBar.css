@@ -6,10 +6,24 @@
   padding: 2vh;
 }
 
+.desktop-menu {
+  font-size: 1rem;
+}
+
+.desktop-menu > a {
+  text-decoration: none;
+  padding-left: 20px;
+  color: white;
+}
+
+.burger-menu {
+  display: none;
+  color: white;
+}
 .logo-icon {
   text-decoration: none;
   color: white;
-  font-size: 2vw;
+  font-size: 1.563rem;
 }
 .hiking-icon {
   padding-left: 0.8rem !important;
@@ -37,11 +51,21 @@
 
 @media only screen and (max-device-width: 650px) {
   .logo-icon {
-    font-size: 4vw;
+    font-size: 1rem;
   }
   .hiking-icon {
     padding-left: 0.4rem !important;
   }
+
+  .burger-menu {
+    display: block;
+    color: white;
+  }
+
+  .desktop-menu {
+    display: none;
+  }
+
   .menu-overlay {
     width: auto;
   }

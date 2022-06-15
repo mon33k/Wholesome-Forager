@@ -37,6 +37,10 @@ const NavBar = () => {
           Wholesome Forager
           <FontAwesomeIcon icon={faPersonHiking} className="hiking-icon" />
         </Link>
+        <div className="desktop-menu">
+          <Link to="/plant/list">Plant Archive</Link>
+          <Link to="/favorite">Favorite Plants</Link>
+        </div>
         <div className="burger-menu" ref={node}>
           <FontAwesomeIcon
             icon={faBars}
