@@ -2,13 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
 }
 
 .plant-profile-img {
-  width: 6vw;
-  height: 12vh;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  padding-top: 20px;
+  margin: 20px;
 }
 
 .plant-name-card {

@@ -32,7 +32,10 @@ const PlantPage = () => {
               <h2>{pageInfo?.scientific_name}</h2>
             </div>
           </div>
-
+          <div>
+            <h4>Habitat</h4>
+            <p>{pageInfo.habitat}</p>
+          </div>
           <p>{pageInfo?.known_hazards}</p>
         </>
       )}
