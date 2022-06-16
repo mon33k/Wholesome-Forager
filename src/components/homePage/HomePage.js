@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import firstImage from "./Child-Picking-Berries.jpg";
+// import firstImage from "/Child-Picking-Berries.jpg";
 import "./homePage.css";
-import iphoneexample from "./iphoneExample.png";
+// import iphoneexample from "/iphoneExample.png";
 
 const HomePage = () => {
   return (
@@ -13,7 +13,7 @@ const HomePage = () => {
           <p>Edible Plant Manual of</p>
           <p>New York State</p>
         </div>
-        <img src={firstImage} className="first-image" />
+        <img src="/Child-Picking-Berries.jpg" className="first-image" />
         <div className="disclaimer-nested-container">
           <h3>Information sourced from USDA and PFAF</h3>
           <div className="resources-box">
@@ -34,7 +34,7 @@ const HomePage = () => {
             list of plant species!
           </p>
           <img
-            src={iphoneexample}
+            src="/iphoneExample.png"
             alt="iphoneexample"
             className="third-image"
           />
