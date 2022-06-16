@@ -3,6 +3,9 @@ import "./PlantPage.css";
 import { ApiContext } from "../../providers/apiContext";
 import { useLocation } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+
 const PlantPage = () => {
   const [pageInfo, setPageInfo] = useState({});
   let location = useLocation();
@@ -22,6 +25,7 @@ const PlantPage = () => {
       {Object.keys(pageInfo).length !== 0 && (
         <>
           <div className="plant-name-card">
+            <FontAwesomeIcon icon={faStar} />
             <img
               src={pageInfo && pageInfo.image_url.split(", ")[0]}
               className="plant-profile-img"
@@ -32,11 +36,32 @@ const PlantPage = () => {
               <h2>{pageInfo?.scientific_name}</h2>
             </div>
           </div>
-          <div>
-            <h4>Habitat</h4>
-            <p>{pageInfo.habitat}</p>
+          <div className="fact-container">
+            <div>
+              <h4>Habitats:</h4>
+              <p>{pageInfo.habitat}</p>
+            </div>
+            <div>
+              <h4>Known Hazards:</h4>
+              <p>{pageInfo?.known_hazards}</p>
+            </div>
+            <div>
+              <h4>Edibility Rating:</h4>
+              <p>{pageInfo.edible_rating}</p>
+            </div>
+            <div>
+              <h4>Medicinal Rating:</h4>
+              <p>{pageInfo.medicinal_rating}</p>
+            </div>
           </div>
-          <p>{pageInfo?.known_hazards}</p>
+          <div className="edible-use-box">
+            <h4>Edible Use</h4>
+            <p>{pageInfo.edible_use}</p>
+          </div>
+          <div className="medicinal-use-box">
+            <h4>Medicinal Use</h4>
+            <p>{pageInfo.medicinal_use}</p>
+          </div>
         </>
       )}
     </div>
