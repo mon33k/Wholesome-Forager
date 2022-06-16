@@ -43,6 +43,11 @@
   padding-left: 20px;
 }
 
+.fact-container > div > p {
+  flex-wrap: wrap;
+  padding-right: 20px;
+}
+
 .edible-use-box,
 .medicinal-use-box {
   display: flex;
