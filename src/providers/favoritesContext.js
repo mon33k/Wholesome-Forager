@@ -1,23 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { createContext } from "react";
 
 export const FavoritesContext = createContext();
 
 export const FavoritesProvider = ({ children }) => {
-  const [plantData, setPlantData] = useState([]);
-
-  //   const favoritePlants =
-
-  const setFavoritePlants = (plant) => {
-    // setPlantData(plant);
-    //localStorage.setItem("plantsFavorited", plantData);
+  const setFavoritePlants = (id, plant) => {
+    localStorage.setItem(id, JSON.stringify(plant));
   };
-  console.log(plantData);
 
   return (
-    <FavoritesContext.Provider
-      value={{ favorites: plantData, setFavorites: setFavoritePlants }}
-    >
+    <FavoritesContext.Provider value={{ setFavorites: setFavoritePlants }}>
       {children}
     </FavoritesContext.Provider>
   );

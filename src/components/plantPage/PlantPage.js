@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import "./PlantPage.css";
 import { ApiContext } from "../../providers/apiContext";
 import { useLocation } from "react-router-dom";
+import FavoritePlants from "../favoritePlants/FavoritePlants";
+import { FavoritesContext } from "../../providers/favoritesContext";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -11,6 +13,8 @@ const PlantPage = () => {
   let location = useLocation();
   const plantApi = useContext(ApiContext);
   const apiCall = plantApi.getPlantById;
+  const [favorites, setFavorites] = useState([]);
+  const favArr = useContext(FavoritesContext);
 
   useEffect(() => {
     const singlePlant = async () => {
@@ -20,12 +24,20 @@ const PlantPage = () => {
     singlePlant();
   }, []);
 
+  const handleClickFavorite = (e) => {
+    // console.log(pageInfo.common_name);
+    favArr.setFavorites(pageInfo.id, pageInfo);
+    // setFavorites(pageInfo);
+  };
+
   return (
     <div className="plant-page-container">
       {Object.keys(pageInfo).length !== 0 && (
         <>
           <div className="plant-name-card">
-            <FontAwesomeIcon icon={faStar} />
+            <button onClick={handleClickFavorite}>
+              <FontAwesomeIcon icon={faStar} />
+            </button>
             <img
               src={pageInfo && pageInfo.image_url.split(", ")[0]}
               className="plant-profile-img"

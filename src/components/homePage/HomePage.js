@@ -11,7 +11,7 @@ const HomePage = () => {
         {" "}
         <div className="img-header-text">
           <p>Edible Plant Manual of</p>
-          <p>New York State</p>
+          <p>New York City</p>
         </div>
         <img src="/Child-Picking-Berries.jpg" className="first-image" />
         <div className="disclaimer-nested-container">
