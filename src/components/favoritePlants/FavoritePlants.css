@@ -1,3 +1,19 @@
+.favorite-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+}
+
+.plantCard-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.plant-detail-container {
+  width: 80%;
+}
+
 .delete-btn {
   visibility: hidden;
 }

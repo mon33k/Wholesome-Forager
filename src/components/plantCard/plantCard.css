@@ -36,6 +36,10 @@
   font-size: 0.8rem;
 }
 
+.favorite-btn {
+  visibility: hidden;
+}
+
 @media only screen and (max-device-width: 650px) {
   .plant-img {
     width: 16vw;

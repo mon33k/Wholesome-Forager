@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import SearchPlant from "../searchPlant/SearchPlant";
-import PlantDetail from "../plantDetail/PlantDetail";
+import PlantCard from "../plantCard/PlantCard";
 import { ApiContext } from "../../providers/apiContext";
 import "./PlantList.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import EmptyView from "../emptyView/EmptyView";
 
 const PlantList = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -51,7 +52,7 @@ const PlantList = () => {
         {filteredPlantsBySearch.length > 0 &&
           filteredPlantsBySearch.map((plant) => {
             return (
-              <PlantDetail
+              <PlantCard
                 commonName={plant.common_name}
                 scientificName={plant.scientific_name}
                 image={plant.image_url.split(",")[0]}
@@ -60,7 +61,7 @@ const PlantList = () => {
               />
             );
           })}
-        {filteredPlantsBySearch == 0 && <div>No results.</div>}
+        {filteredPlantsBySearch == 0 && <EmptyView />}
       </div>
     </div>
   );

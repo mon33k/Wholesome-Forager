@@ -19,15 +19,14 @@ const PlantPage = () => {
   useEffect(() => {
     const singlePlant = async () => {
       const response = await apiCall(location.state.id);
+      console.log("pageInfo ", response);
       setPageInfo(response);
     };
     singlePlant();
   }, []);
 
   const handleClickFavorite = (e) => {
-    // console.log(pageInfo.common_name);
     favArr.setFavorites(pageInfo.id, pageInfo);
-    // setFavorites(pageInfo);
   };
 
   return (
@@ -35,8 +34,8 @@ const PlantPage = () => {
       {Object.keys(pageInfo).length !== 0 && (
         <>
           <div className="plant-name-card">
-            <button onClick={handleClickFavorite}>
-              <FontAwesomeIcon icon={faStar} />
+            <button onClick={handleClickFavorite} className="favorite-btn">
+              <FontAwesomeIcon icon={faStar} className="favorite-icon" />
             </button>
             <img
               src={pageInfo && pageInfo.image_url.split(", ")[0]}

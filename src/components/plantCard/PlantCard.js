@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./plantDetail.css";
+import "./plantCard.css";
 
-const PlantDetail = ({ commonName, scientificName, id, image }) => {
+const PlantCard = ({ commonName, scientificName, id, image }) => {
   const navigate = useNavigate();
 
   const handleClickCard = (e) => {
@@ -22,4 +22,4 @@ const PlantDetail = ({ commonName, scientificName, id, image }) => {
   );
 };
 
-export default PlantDetail;
+export default PlantCard;

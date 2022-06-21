@@ -15,13 +15,21 @@ const HomePage = () => {
         </div>
         <img src="/Child-Picking-Berries.jpg" className="first-image" />
         <div className="disclaimer-nested-container">
-          <h3>Information sourced from USDA and PFAF</h3>
-          <div className="resources-box">
+          <h3>
+            Information sourced from{" "}
+            <a href="https://plants.sc.egov.usda.gov/home">USDA</a> and{" "}
+            <a href="https://pfaf.org/user/Default.aspx">PFAF</a>
+          </h3>
+          <div className="disclaimer-box">
             <h4>
-              For more information please refer to these sources:<br></br>
-              <a href="https://plants.sc.egov.usda.gov/home">USDA Database</a>
+              Disclaimer: All information here is for education and general
+              information purposes.
               <br></br>
-              <a href="https://pfaf.org/user/Default.aspx">PFAF Database</a>
+              Always seek the advice of a health professional before touching or
+              eating any plant matter.
+              <br></br>
+              As with any natural ingredients found in the wild, they can be
+              toxic if misused.
             </h4>
           </div>
         </div>
@@ -41,11 +49,22 @@ const HomePage = () => {
         </div>
 
         <div className="third-section-container">
-          <img
-            src="https://loveincorporated.blob.core.windows.net/contentimages/main/foraging+.jpg"
-            alt="plants"
-            className="veggie-image"
-          />
+          <p className="second-feature-description1">
+            Find one of the plants you saw on here?
+          </p>
+          <div className="third-section-box">
+            <div className="veggie-img-container">
+              <img
+                src="https://farmhouse-bc.com/wp-content/uploads/elderberry-flowers-for-bowels.jpg"
+                alt="plants"
+                className="veggie-image"
+              />
+            </div>
+            <p className="second-feature-description">
+              Add your notes for <br></br> other foragers to learn <br></br>more
+              about what to <br></br>look out for!{" "}
+            </p>
+          </div>
         </div>
       </div>
     </>

@@ -1,56 +1,62 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useContext, useState, useRef } from "react";
+import PlantCard from "../plantCard/PlantCard";
+import EmptyView from "../emptyView/EmptyView";
 import { FavoritesContext } from "../../providers/favoritesContext";
 import { faCircleMinus } from "@fortawesome/free-solid-svg-icons";
 import "./FavoritePlants.css";
 
 const FavoritePlants = () => {
+  const [favoritePlantStorage, setFavoritePlantStorage] = useState(
+    Object.values({ ...localStorage })
+  );
   const [currentStorage, setCurrentStorage] = useState({});
-  const [deletedItem, setDeletedItem] = useState("");
-  //setCurrentStorage(Object.values({ ...localStorage }));
-  // const data = localStorage.getItem("Beach Strawberry");
-  // console.log("data", JSON.parse(data));
-  //useEffect(() => {
-  //const data = localStorage.getItem(deletedItem);
-  // if (data) {
-  //   setCurrentStorage(storage);
-  // }
-  // console.log(localStorage);
-  //});
 
-  // console.log("all favs");
   const handleDeleteAllFavorites = () => {
+    console.log("delete all clicked");
     localStorage.clear();
+    setFavoritePlantStorage([]);
   };
 
   const handleDeleteOne = (id, e) => {
-    console.log("id deleted ", typeof id.toString());
-    setDeletedItem(id);
-    //let itemToRemove = localStorage.getItem(id.toString());
     localStorage.removeItem(id);
-    // localStorage.set
-    // setCurrentStorage();
+    setFavoritePlantStorage(Object.values({ ...localStorage }));
   };
-  // console.log(localStorage);
+
   return (
-    <div>
-      Favorite Plant page
-      {Object.values({ ...localStorage }).map((plant) => {
-        let jsonData = JSON.parse(plant);
-        return (
-          <div className="favorite-plant-card">
-            <h1>{jsonData.common_name}</h1>
-            <p>{jsonData.scientific_name}</p>
-            <button
-              className="delete-btn"
-              onClick={() => handleDeleteOne(jsonData.id)}
-            >
-              <FontAwesomeIcon icon={faCircleMinus} className="delete-icon" />
-            </button>
-          </div>
-        );
-      })}
-      <button onClick={() => handleDeleteAllFavorites}>Delete All</button>
+    <div className="favorite-container">
+      {favoritePlantStorage.length === 0 && (
+        <EmptyView message="No favorites selected" />
+      )}
+      {favoritePlantStorage.length > 0 && (
+        <div>
+          {favoritePlantStorage.map((plant) => {
+            let jsonData = JSON.parse(plant);
+            return (
+              <div className="plantCard-container">
+                <PlantCard
+                  commonName={jsonData.common_name}
+                  scientificName={jsonData.scientific_name}
+                  image={jsonData.image_url.split(",")[0]}
+                  key={jsonData.id}
+                  id={jsonData.id}
+                />
+                <button
+                  className="delete-btn"
+                  onClick={() => handleDeleteOne(jsonData.id)}
+                >
+                  <FontAwesomeIcon
+                    icon={faCircleMinus}
+                    className="delete-icon"
+                  />
+                </button>
+              </div>
+            );
+          })}
+
+          <button onClick={() => handleDeleteAllFavorites()}>Delete All</button>
+        </div>
+      )}
     </div>
   );
 };
