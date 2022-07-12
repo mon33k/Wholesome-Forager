@@ -62,6 +62,9 @@
 .favorite-icon {
   visibility: visible;
   margin-bottom: 90px;
-  color: rgb(126, 126, 15);
   font-size: 20px;
+}
+
+.favorite-icon-selected {
+  
 }

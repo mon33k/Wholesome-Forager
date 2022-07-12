@@ -61,7 +61,7 @@ const PlantList = () => {
               />
             );
           })}
-        {filteredPlantsBySearch == 0 && <EmptyView />}
+        {filteredPlantsBySearch == 0 && <EmptyView message="Loading..." />}
       </div>
     </div>
   );

@@ -13,7 +13,6 @@ const PlantPage = () => {
   let location = useLocation();
   const plantApi = useContext(ApiContext);
   const apiCall = plantApi.getPlantById;
-  const [favorites, setFavorites] = useState([]);
   const favArr = useContext(FavoritesContext);
 
   useEffect(() => {
