@@ -18,7 +18,6 @@ const PlantPage = () => {
   useEffect(() => {
     const singlePlant = async () => {
       const response = await apiCall(location.state.id);
-      console.log("pageInfo ", response);
       setPageInfo(response);
     };
     singlePlant();

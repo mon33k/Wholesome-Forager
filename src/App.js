@@ -6,17 +6,20 @@ import {
   FavoritesProvider,
   FavoritesContext,
 } from "./providers/favoritesContext";
+import { UserAuthProvider } from "./providers/userAuthContext";
 
 import { Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   return (
     <ApiProvider>
-      <FavoritesProvider>
-        <div className="App">
-          <NavBar />
-        </div>
-      </FavoritesProvider>
+      <UserAuthProvider>
+        <FavoritesProvider>
+          <div className="App">
+            <NavBar />
+          </div>
+        </FavoritesProvider>
+      </UserAuthProvider>
     </ApiProvider>
   );
 }

@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import React, { useEffect, useContext, useState, useRef } from "react";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
+
 import "./navBar.css";
 import PlantList from "../plantList/PlantList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,12 +11,25 @@ import PlantPage from "../plantPage/PlantPage";
 import FavoritePlants from "../favoritePlants/FavoritePlants";
 import SearchPlant from "../searchPlant/SearchPlant";
 
-import { LoginPage } from "../loginPage/LoginPage";
-import { RegisterPage } from "../registerPage/RegisterPage";
+import AuthForm from "../authForm/AuthForm";
+import { UserAuthContext } from "../../providers/userAuthContext";
+import { FavoritesContext } from "../../providers/favoritesContext";
 
 const NavBar = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const userAuthMethods = useContext(UserAuthContext);
   const node = useRef();
   const [isModalOpen, setModalOpen] = useState(false);
+
+  useEffect(() => {
+    let authToken = sessionStorage.getItem("Auth Token");
+
+    if (authToken) {
+      navigate("/home");
+    }
+  }, []);
 
   const handleClickModal = (e) => {
     if (node.current.contains(e.target)) {
@@ -23,6 +37,20 @@ const NavBar = () => {
       return;
     }
     setModalOpen(false);
+  };
+
+  const handleAuthAction = (type) => {
+    try {
+      if (type === "register") {
+        userAuthMethods.handleRegisterUser(email, password);
+        navigate("/");
+      } else if (type === "login") {
+        userAuthMethods.handleLoginUser(email, password);
+        navigate("/");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
@@ -66,8 +94,28 @@ const NavBar = () => {
         <Route path="/plant/:id" element={<PlantPage />} />
         <Route path="/favorite" element={<FavoritePlants />} />
         <Route path="/search/:text" element={<SearchPlant />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/login"
+          element={
+            <AuthForm
+              title="Login"
+              setEmail={setEmail}
+              setPassword={setPassword}
+              handleAction={() => handleAuthAction("login")}
+            />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <AuthForm
+              title="Register"
+              setEmail={setEmail}
+              setPassword={setPassword}
+              handleAction={() => handleAuthAction("register")}
+            />
+          }
+        />
       </Routes>
     </>
   );
